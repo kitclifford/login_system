@@ -43,12 +43,13 @@
                 $reset_id = $row['id'];
 
 
+
+
+
             } else {
                 $error = true;
                 $error_message[] = 'Invalid link.';
             }
-
-
 
         } else {
             $error = true;
@@ -56,9 +57,6 @@
         }
 
     } 
-
-
-
 
 ?>
 
@@ -76,11 +74,12 @@
         <input class ='input' id='password' name ='password' type='password'/>
         <input class ='input' type='submit' value='Set password'/>
         </form>
+    <p>Need to login instead? Click <a href='http://192.168.33.10/login_system/login.php'>here</a>.<p>
         <?php 
         if($_POST) {
             if (false === $error){
                 if (true === $success) {
-                    echo 'Password reset!';
+                    header("Location: reset_success.php");
                 } else {
                     echo 'Error';
                 }

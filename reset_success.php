@@ -1,5 +1,4 @@
 <html>
-
     <head>
         <title>Reset Password Success</title>
         <link rel="stylesheet" href="register.css">
