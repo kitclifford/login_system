@@ -46,10 +46,6 @@
             $error_message[] = 'Please enter a valid email. ';
         }
 
-        // if
-        // check email is on database
-        // if it is error
-        // else continue 
 
         $email_check = "SELECT * FROM `users` WHERE `username` = '$clean_email';";
         $email_result = mysqli_query($conn, $email_check);
@@ -82,7 +78,11 @@
 
             $sql = "INSERT INTO `users` (`username`, `password`, `activation_code`) VALUES ('$clean_email', '$hashed_password', '$clean_activation_code');";
 
-            $result = mysqli_query($conn, $sql);
+            $user_insert = "INSERT INTO `users` (`username`, `password`, `activation_code`) VALUES ('$clean_email', '$hashed_password', '$clean_activation_code');";
+
+            $result = mysqli_query($conn, $user_insert);
+            
+
                 if ($result) {
                     // Put this in another conditional
                     $headers = "From: Dev Me <team@example.com>\r\n";
@@ -110,7 +110,6 @@
                     $error = true;
                     $error_message[] = 'Something went wrong with our database. ';
                 }
-            
         }
     };
     
@@ -136,8 +135,8 @@
                 
                 if (true == $success) {
                     echo "We will shortly send you an email confirming your registration.";
-                } else{
-                    echo 'Something went wrong with the database.';
+                } else {
+                    echo 'Something went wrong with our database.';
                 }
             }
             if (true ==$error){
